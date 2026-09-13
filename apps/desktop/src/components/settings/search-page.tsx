@@ -194,6 +194,7 @@ export function SearchPage({ runtimeId }: { runtimeId: RuntimeId }) {
                     label={t.search.keys[provider]}
                     value={settings[_settingsKeyFor(provider)]}
                     getKeyUrl={GET_KEY_URLS[provider]}
+                    getKeyButton
                     onChange={(e) =>
                       setSettings({
                         ...settings,
