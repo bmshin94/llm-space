@@ -978,7 +978,7 @@ function ServerEditor({
                 )}
               </p>
             </div>
-            <Button asChild size="sm" className="shrink-0">
+            <Button asChild size="sm" variant="outline" className="shrink-0">
               <Link href={recommendation.credential.url}>
                 {t.mcp.getApiToken}
                 <ExternalLink className="size-3.5" />
