@@ -103,7 +103,7 @@ export function SearchPage({ runtimeId }: { runtimeId: RuntimeId }) {
       <div className="flex h-full min-h-0 gap-6">
         <aside className="flex w-64 shrink-0 flex-col gap-3 border-r pr-4">
           <span className="text-muted-foreground text-xs font-medium tracking-wide uppercase">
-            PROVIDERS
+            {t.search.providersHeading}
           </span>
 
           <div className="flex flex-col gap-1">
@@ -130,19 +130,15 @@ export function SearchPage({ runtimeId }: { runtimeId: RuntimeId }) {
                     />
                   </span>
                   <span className="min-w-0 flex-1">
-                    <span className="block truncate text-sm font-medium">
+                    <span className="text-foreground block truncate text-sm font-medium">
                       {_displayProviderName(t.search.providers[provider])}
                     </span>
-                    <span className="mt-0.5 flex items-center gap-1 text-[11px]">
-                      {isDefault ? (
-                        <>
-                          <Check className="text-primary size-3" /> Default
-                        </>
-                      ) : (
-                        "Configured"
-                      )}
-                    </span>
                   </span>
+                  {isDefault ? (
+                    <span className="text-primary flex shrink-0 items-center gap-1 text-[11px] font-medium">
+                      <Check className="size-3" /> {t.search.defaultLabel}
+                    </span>
+                  ) : null}
                 </button>
               );
             })}
@@ -171,13 +167,13 @@ export function SearchPage({ runtimeId }: { runtimeId: RuntimeId }) {
                         {_displayProviderName(t.search.providers[provider])}
                       </h2>
                       <p className="text-muted-foreground mt-1 text-sm">
-                        Configure the API key for this search provider.
+                        {t.search.detailsDescription}
                       </p>
                     </div>
                   </div>
                   {isDefault ? (
                     <span className="bg-primary text-primary-foreground inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs font-semibold">
-                      <Check className="size-3.5" /> Default
+                      <Check className="size-3.5" /> {t.search.defaultLabel}
                     </span>
                   ) : (
                     <Button
@@ -185,7 +181,7 @@ export function SearchPage({ runtimeId }: { runtimeId: RuntimeId }) {
                       size="sm"
                       onClick={() => void persist({ ...settings, provider })}
                     >
-                      Set as default
+                      {t.search.setDefault}
                     </Button>
                   )}
                 </div>
@@ -215,8 +211,8 @@ export function SearchPage({ runtimeId }: { runtimeId: RuntimeId }) {
                   </p>
                 </div>
                 <div className="text-muted-foreground mt-6 flex items-center gap-2 text-xs">
-                  <Circle className="size-3 fill-current" /> Only the provider
-                  marked Default is used by web_search.
+                  <Circle className="size-3 fill-current" />{" "}
+                  {t.search.defaultHint}
                 </div>
               </>
             );
