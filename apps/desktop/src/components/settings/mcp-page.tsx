@@ -963,7 +963,7 @@ function ServerEditor({
         </div>
 
         {recommendation?.credential && !readOnly ? (
-          <div className="border-primary/20 bg-primary/5 flex flex-wrap items-start justify-between gap-3 rounded-lg border p-3">
+          <div className="border-border bg-muted/20 flex flex-wrap items-start justify-between gap-3 rounded-lg border p-3">
             <div className="min-w-0 flex-1 basis-48">
               <p className="text-sm font-medium">
                 {recommendation.credential.requirement === "required"
