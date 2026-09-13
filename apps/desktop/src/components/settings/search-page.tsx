@@ -131,7 +131,7 @@ export function SearchPage({ runtimeId }: { runtimeId: RuntimeId }) {
                   </span>
                   <span className="min-w-0 flex-1">
                     <span className="block truncate text-sm font-medium">
-                      {t.search.providers[provider]}
+                      {_displayProviderName(t.search.providers[provider])}
                     </span>
                     <span className="mt-0.5 flex items-center gap-1 text-[11px]">
                       {isDefault ? (
@@ -168,7 +168,7 @@ export function SearchPage({ runtimeId }: { runtimeId: RuntimeId }) {
                     </span>
                     <div>
                       <h2 className="text-xl font-semibold tracking-tight">
-                        {t.search.providers[provider]}
+                        {_displayProviderName(t.search.providers[provider])}
                       </h2>
                       <p className="text-muted-foreground mt-1 text-sm">
                         Configure the API key for this search provider.
@@ -240,4 +240,8 @@ function _settingsKeyFor(
   | "anysearchApiKey"
   | "zhihuAccessSecret" {
   return provider === "zhihu" ? "zhihuAccessSecret" : `${provider}ApiKey`;
+}
+
+function _displayProviderName(name: string): string {
+  return name.replace(/\s*\(MCP\)$/i, "");
 }
